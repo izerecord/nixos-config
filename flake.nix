@@ -26,9 +26,13 @@
       };
 
       homeConfigurations = {
-        chris = home-manager.lib.homeManagerConfiguration {
+        "chris@nixdesktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [ ./home/desktop.nix ];
+        };
+        "chris@nixlaptop" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home/laptop.nix ];
         };
       };
     };

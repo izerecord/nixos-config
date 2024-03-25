@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./apps/sh.nix ./apps/vscode.nix ];
+  imports = [ 
+    ./apps/sh.nix 
+    ./apps/vscode.nix 
+    ./apps/basic.nix
+    ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "chris";
@@ -27,6 +31,7 @@
     wget
     nil
     nixpkgs-fmt
+    thunderbird
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

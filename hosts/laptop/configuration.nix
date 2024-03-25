@@ -50,9 +50,9 @@
   services.xserver.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "de";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -86,10 +86,10 @@
     isNormalUser = true;
     description = "chris";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
+    #packages = with pkgs; [
       #  firefox
       #  thunderbird
-    ];
+    #];
   };
 
   # Enable automatic login for the user.
@@ -98,6 +98,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    steam.enable = true;
+  };
+
 
   # List packages installed in system profile. To search, run:
   #environment.systemPackages = with pkgs; [

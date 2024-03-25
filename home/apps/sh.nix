@@ -11,7 +11,7 @@ in
     enable = true;
     shellAliases = myAliases;
   };
-  programs.zsh = {
+  programs.fish = {
     enable = true;
     shellAliases = myAliases;
   };

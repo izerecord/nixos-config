@@ -2,4 +2,6 @@
 
 {
   imports = [ ./default.nix ];
+
+  # todo: hyprland monitors (?)
 }

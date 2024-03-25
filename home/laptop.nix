@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./default.nix ];
+  imports = [ ./all.nix ];
 
   # todo: hyprland monitors (?)
 }

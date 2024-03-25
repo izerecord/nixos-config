@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../profiles/gnome.nix
     ];
@@ -17,8 +18,8 @@
 
   networking.hostName = "nixlaptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  
-   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -86,8 +87,8 @@
     description = "chris";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
+      #  firefox
+      #  thunderbird
     ];
   };
 
@@ -99,16 +100,15 @@
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  environment.systemPackages = with pkgs; [
-    kate
-    thunderbird
-    #vscodium
-    neofetch
-    wgnord
-    wget
-    nil
-    nixpkgs-fmt
-  ];
+  #environment.systemPackages = with pkgs; [
+  #kate
+  #thunderbird
+  #vscodium
+  #  wgnord
+  #  wget
+  #   nil
+  #   nixpkgs-fmt
+  #];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -117,15 +117,15 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    firefox.enable = true;
-    #steam.enable = true;
-    git.enable = true;
-  };
+  #programs = {
+  #  neovim = {
+  #    enable = true;
+  #    defaultEditor = true;
+  #  };
+  #  firefox.enable = true;
+  #  #steam.enable = true;
+  #  git.enable = true;
+  #};
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

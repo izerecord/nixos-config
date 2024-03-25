@@ -102,7 +102,7 @@
   environment.systemPackages = with pkgs; [
     kate
     thunderbird
-    vscodium
+    #vscodium
     neofetch
     wgnord
     wget

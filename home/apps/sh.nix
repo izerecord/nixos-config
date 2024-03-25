@@ -5,7 +5,7 @@ let
     ll = "ls -l";
     ".." = "cd ..";
     hs = "home-manager switch --flake ~/.dotfiles";
-    ns = "sudo nixos-rebuild switch --flake .";
+    ns = "sudo nixos-rebuild switch --flake ~/.dotfiles";
   };
 in
 {

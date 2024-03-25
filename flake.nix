@@ -17,11 +17,11 @@
       nixosConfigurations = {
         nixdesktop = lib.nixosSystem {
           inherit system;
-          modules = [ ./desktop/configuration.nix ];
+          modules = [ ./hosts/desktop/configuration.nix ];
         };
         nixlaptop = lib.nixosSystem {
           inherit system;
-          modules = [ ./laptop/configuration.nix ];
+          modules = [ ./hosts/laptop/configuration.nix ];
         };
       };
 

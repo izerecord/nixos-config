@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, userSettings, ... }:
 
 {
   imports = [
@@ -6,7 +6,9 @@
     ./apps/vscode.nix
     ./apps/basic.nix
   ]
-  ++ (if config.programs.hyprland.enable == true then [ ./apps/hyprland.nix ] else [ ]);
+  ++ (if userSettings.wm == "hyprland" then [ ./apps/hyprland.nix ] else [ ]);
+
+
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

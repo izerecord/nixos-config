@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ../../profiles/gnome.nix
     ];
+    # todo: exclude gnome if hyprland is activated!
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

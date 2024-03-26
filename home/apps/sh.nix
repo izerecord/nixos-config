@@ -4,8 +4,8 @@ let
   myAliases = {
     ll = "ls -l";
     ".." = "cd ..";
-    hs = "home-manager switch --flake ~/.dotfiles";
-    ns = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+    homebuild = "home-manager switch --flake ~/.dotfiles";
+    nixbuild = "sudo nixos-rebuild switch --flake ~/.dotfiles";
   };
 in
 {

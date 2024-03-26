@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
-    ./apps/sh.nix 
-    ./apps/vscode.nix 
+  imports = [
+    ./apps/sh.nix
+    ./apps/vscode.nix
     ./apps/basic.nix
-    ];
+  ]
+  ++ (if config.programs.hyprland.enable == true then [ ./apps/hyprland ] else [ ]);
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "chris";

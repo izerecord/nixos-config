@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../profiles/gnome.nix
+      ../../wm/gnome.nix
     ];
     # todo: exclude gnome if hyprland is activated!
 

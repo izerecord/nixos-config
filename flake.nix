@@ -20,12 +20,12 @@
       nixosConfigurations = {
         nixdesktop = lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/desktop/configuration.nix ];
+          modules = [ ./system/hosts/desktop/configuration.nix ];
           specialArgs = { inherit userSettings; };
         };
         nixlaptop = lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/laptop/configuration.nix ];
+          modules = [ ./system/hosts/laptop/configuration.nix ];
           specialArgs = { inherit userSettings; };
         };
       };

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   imports =
@@ -10,7 +10,8 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../wm/gnome.nix
-    ];
+    ]
+    ++ (if userSettings.wm == "hyprland" then [ ../../wm/hyprland.nix ] else [ ]);
     # todo: exclude gnome if hyprland is activated!
 
   # Bootloader.

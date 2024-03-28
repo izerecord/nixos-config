@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
 
+  home.file.".local/share/applications/nvim.desktop".source = ./desktopfiles/nvim.desktop;
+
   imports = [
     ./gtk.nix
     ./waybar.nix

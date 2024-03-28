@@ -1,22 +1,30 @@
 { config, pkgs, ... }:
 {
 
-  home.packages = with pkgs; [
-    hyprpaper
-    cinnamon.nemo
-    qt6ct
+  imports = [
+    ./gtk.nix
   ];
+
+  home.packages = with pkgs;
+    [
+      hyprpaper
+      cinnamon.nemo
+      qt6ct
+      xdg-desktop-portal-hyprland
+      #pyprland
+    ];
 
   programs = {
     kitty.enable = true;
     fuzzel.enable = true;
     waybar.enable = true;
   };
+  
   wayland.windowManager.hyprland = {
     enable = true;
     #plugins = [ "hyprbars" ];
     settings = {
-      "exec-once" = "waybar & hyprpaper";
+      "exec-once" = "waybar & hyprpaper & pypr";
       "$terminal" = "kitty";
       "$fileManager" = "nemo";
       "$menu" = "fuzzel";
@@ -124,10 +132,10 @@
 
         # Example per-device config
         # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-        device {
-            name = epic-mouse-v1
-            sensitivity = -0.5
-        }
+        #device {
+        #    name = epic-mouse-v1
+        #    sensitivity = -0.5
+        #}
 
         # Example windowrule v1
         # windowrule = float, ^(kitty)$
@@ -142,13 +150,12 @@
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, Return, exec, $terminal
+        bind = $mainMod, Space, exec, $menu
+        bind = $mainMod, E, exec, $fileManager
         bind = $mainMod, Q, killactive,
         bind = $mainMod, M, exit,
-        bind = $mainMod, E, exec, $fileManager
-        bind = $mainMod, V, togglefloating,
-        bind = $mainMod, Space, exec, $menu
-        bind = $mainMod, P, pseudo, # dwindle
-        bind = $mainMod, J, togglesplit, # dwindle
+        bind = $mainMod, T, togglefloating,
+        bind = $mainMod, F, fullscreen,
 
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l

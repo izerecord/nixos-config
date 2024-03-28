@@ -6,7 +6,7 @@
     ./apps/vscode.nix
     ./apps/basic.nix
   ]
-  ++ (if userSettings.wm == "hyprland" then [ ./apps/hyprland.nix ] else [ ]);
+  ++ (if userSettings.wm == "hyprland" then [ ./hypr/hyprland.nix ] else [ ]);
 
 
 
@@ -42,6 +42,7 @@
     lshw
     pciutils
     nvtopPackages.full
+    btop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

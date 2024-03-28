@@ -16,8 +16,8 @@
     };
 
     iconTheme = {
-      package = pkgs.dracula-icon-theme;
-      name = "Dracula";
+      package = pkgs.pop-icon-theme;
+      name = "Pop";
     };
 
     font = {

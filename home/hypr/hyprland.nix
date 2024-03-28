@@ -6,19 +6,33 @@
     ./waybar.nix
   ];
 
+  # Environment
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "firefox";
+    TERMINAL = "kitty";
+  };
+
   home.packages = with pkgs;
     [
       hyprpaper
-      cinnamon.nemo
       qt6ct
-      xdg-desktop-portal-hyprland
       nwg-look
       #pyprland
     ];
 
   programs = {
     kitty.enable = true;
-    fuzzel.enable = true;
+    fuzzel = {
+      enable = true;
+      settings = {
+        main = {
+          terminal = "kitty";
+          layer = "overlay";
+        };
+        colors.background = "ffffffff";
+      };
+    };
   };
 
   wayland.windowManager.hyprland = {
@@ -27,7 +41,7 @@
     settings = {
       "exec-once" = "waybar & hyprpaper & pypr";
       "$terminal" = "kitty";
-      "$fileManager" = "nemo";
+      "$fileManager" = "thunar";
       "$menu" = "fuzzel";
     };
     extraConfig =

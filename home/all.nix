@@ -26,6 +26,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -36,7 +37,11 @@
     nil
     nixpkgs-fmt
     thunderbird
-
+    glmark2
+    glxinfo
+    lshw
+    pciutils
+    nvtopPackages.full
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

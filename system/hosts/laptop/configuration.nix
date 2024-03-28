@@ -48,8 +48,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -81,16 +80,17 @@
   };
 
   # --- HARDWARE & GRAPHICS ---
-
+  #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+
   hardware =
     {
       # Enable OpenGL
-      #opengl = {
-      #  enable = true;
-      #  driSupport = true;
-      #  driSupport32Bit = true;
-      #};
+      opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+      };
       # Load nvidia driver for Xorg and Wayland
 
       nvidia = {
@@ -102,7 +102,7 @@
         # Enable this if you have graphical corruption issues or application crashes after waking
         # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
         # of just the bare essentials.
-        powerManagement.enable = false;
+        powerManagement.enable = true;
 
         # Fine-grained power management. Turns off GPU when not in use.
         # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -119,17 +119,27 @@
 
         # Enable the Nvidia settings menu,
         # accessible via `nvidia-settings`.
-        nvidiaSettings = true;
+        nvidiaSettings = false;
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        #package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+        #package = pkgs.linuxKernel.packages.linux_6_1.nvidia_x11;
+        # try this: 
+        package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
         prime = {
+          offload = {
+            enable = true;
+            enableOffloadCmd = true;
+          };
+          #sync.enable = true; # drains power!
+          #reverseSync.enable = true;
           # Make sure to use the correct Bus ID values for your system!
           intelBusId = "PCI:0:2:0";
-          nvidiaBusId = "PCI:0:1:0";
+          nvidiaBusId = "PCI:1:0:0";
         };
       };
     };
+
 
 
 
@@ -164,13 +174,7 @@
 
   # List packages installed in system profile. To search, run:
   #environment.systemPackages = with pkgs; [
-  #kate
-  #thunderbird
-  #vscodium
-  #  wgnord
-  #  wget
-  #   nil
-  #   nixpkgs-fmt
+  #  linuxKernel.packages.linux_6_1.nvidia_x11_legacy390
   #];
 
   # Some programs need SUID wrappers, can be configured further or are

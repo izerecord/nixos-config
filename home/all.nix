@@ -8,7 +8,7 @@
   ]
   ++ (if userSettings.wm == "hyprland" then [ ./hypr/hyprland.nix ] else [ ]);
 
-
+  fonts.fontconfig.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -43,6 +43,20 @@
     pciutils
     nvtopPackages.full
     btop
+
+    jellyfin-media-player
+
+
+    # fonts
+    fira-code
+    fira-code-symbols
+    font-awesome
+    liberation_ttf
+    mplus-outline-fonts.githubRelease
+    nerdfonts
+    noto-fonts
+    noto-fonts-emoji
+    proggyfonts
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

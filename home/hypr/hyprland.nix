@@ -3,6 +3,8 @@
 
   home.file.".local/share/applications/nvim.desktop".source = ./desktopfiles/nvim.desktop;
 
+  #services.network-manager-applet.enable = true;
+
   imports = [
     ./gtk.nix
     ./waybar.nix
@@ -20,6 +22,7 @@
       hyprpaper
       qt6ct
       nwg-look
+      networkmanagerapplet
       #pyprland
     ];
 
@@ -114,8 +117,7 @@
         animations {
             enabled = true
 
-            # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
+            # Some default animations, serv
             bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 
             animation = windows, 1, 7, myBezier

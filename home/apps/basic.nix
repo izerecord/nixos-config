@@ -9,5 +9,6 @@
     #thunderbird.enable = true;
     git.enable = true;
     mangohud.enable = true;
+    
   };
 }

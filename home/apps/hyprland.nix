@@ -1,45 +1,43 @@
 { config, pkgs, ... }:
 {
+
+  home.packages = with pkgs; [
+    hyprpaper
+    cinnamon.nemo
+    qt6ct
+  ];
+
   programs = {
     kitty.enable = true;
+    fuzzel.enable = true;
+    waybar.enable = true;
   };
   wayland.windowManager.hyprland = {
     enable = true;
+    #plugins = [ "hyprbars" ];
+    settings = {
+      "exec-once" = "waybar & hyprpaper";
+      "$terminal" = "kitty";
+      "$fileManager" = "nemo";
+      "$menu" = "fuzzel";
+    };
     extraConfig =
       ''
-        # This is an example Hyprland config file.
-        #
-        # Refer to the wiki for more information.
-
-        #
-        # Please note not all available settings / options are set here.
-        # For a full list, see the wiki
-        #
-
-        # See https://wiki.hyprland.org/Configuring/Monitors/
-        # monitor=,preferred,auto,auto
-
-
-        # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-
-        # Execute your favorite apps at launch
-        # exec-once = waybar & hyprpaper & firefox
-
         # Source a file (multi-file configs)
         # source = ~/.config/hypr/myColors.conf
 
         # Set programs that you use
-        $terminal = kitty
-        $fileManager = dolphin
-        $menu = wofi --show drun
+        # $terminal = kitty
+        # $fileManager = dolphin
+        # $menu = wofi --show drun
 
         # Some default env vars.
         env = XCURSOR_SIZE,24
-        env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
+        env = QT_QPA_PLATFORMTHEME,qt6ct # change to qt6ct if you have that
 
         # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
         input {
-            kb_layout = us
+            kb_layout = de
             kb_variant =
             kb_model =
             kb_options =
@@ -116,7 +114,7 @@
 
         gestures {
             # See https://wiki.hyprland.org/Configuring/Variables/ for more
-            workspace_swipe = false
+            workspace_swipe = true
         }
 
         misc {
@@ -143,12 +141,12 @@
         $mainMod = SUPER
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, Q, exec, $terminal
-        bind = $mainMod, C, killactive,
+        bind = $mainMod, Return, exec, $terminal
+        bind = $mainMod, Q, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, E, exec, $fileManager
         bind = $mainMod, V, togglefloating,
-        bind = $mainMod, R, exec, $menu
+        bind = $mainMod, Space, exec, $menu
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 

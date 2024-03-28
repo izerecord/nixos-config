@@ -9,9 +9,10 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../wm/gnome.nix
     ]
-    ++ (if userSettings.wm == "hyprland" then [ ../../wm/hyprland.nix ] else [ ]);
+    ++ (if userSettings.wm == "hyprland" then [ ../../wm/hyprland.nix ]
+    else if userSettings.wm == "gnome" then [ ../../wm/gnome.nix ]
+    else [ ]);
   # todo: exclude gnome if hyprland is activated!
 
   # Bootloader.

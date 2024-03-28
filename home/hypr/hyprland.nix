@@ -3,6 +3,7 @@
 
   imports = [
     ./gtk.nix
+    ./waybar.nix
   ];
 
   home.packages = with pkgs;
@@ -11,15 +12,15 @@
       cinnamon.nemo
       qt6ct
       xdg-desktop-portal-hyprland
+      nwg-look
       #pyprland
     ];
 
   programs = {
     kitty.enable = true;
     fuzzel.enable = true;
-    waybar.enable = true;
   };
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     #plugins = [ "hyprbars" ];

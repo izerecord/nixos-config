@@ -11,13 +11,13 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      package = pkgs.dracula-theme;
+      name = "Dracula";
     };
 
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.dracula-icon-theme;
+      name = "Dracula";
     };
 
     font = {

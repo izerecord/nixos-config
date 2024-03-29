@@ -48,6 +48,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$menu" = "fuzzel";
+      "$browser" = "firefox";
     };
     extraConfig =
       ''
@@ -58,6 +59,7 @@
         # $terminal = kitty
         # $fileManager = dolphin
         # $menu = wofi --show drun
+
 
         # Some default env vars.
         env = XCURSOR_SIZE,24
@@ -168,8 +170,9 @@
         $mainMod = SUPER
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, Return, exec, $terminal
-        bind = $mainMod, Space, exec, $menu
+        bind = $mainMod, Return, exec, $terminal,
+        bind = $mainMod, Space, exec, $menu,
+        bind = $mainMod, B, $browser,
         bind = $mainMod, E, exec, $fileManager
         bind = $mainMod, Q, killactive,
         bind = $mainMod, M, exit,

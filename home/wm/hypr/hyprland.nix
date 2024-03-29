@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 {
 
-  home.file.".local/share/applications/nvim.desktop".source = ./desktopfiles/nvim.desktop;
+  home.file.".local/share/applications/nvim.desktop".source = ../desktopfiles/nvim.desktop;
 
   #services.network-manager-applet.enable = true;
 
   imports = [
-    ./gtk.nix
-    ./waybar.nix
+    ../gtk.nix
+    ../waybar.nix
   ];
 
   # Environment

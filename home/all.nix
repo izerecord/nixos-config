@@ -6,7 +6,7 @@
     ./apps/vscode.nix
     ./apps/basic.nix
   ]
-  ++ (if userSettings.wm == "hyprland" then [ ./hypr/hyprland.nix ] else [ ]);
+  ++ (if userSettings.wm == "hyprland" then [ ./wm/hypr/hyprland.nix ] else [ ]);
 
   fonts.fontconfig.enable = true;
 

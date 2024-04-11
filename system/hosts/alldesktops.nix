@@ -1,10 +1,10 @@
 { config, pkgs, userSettings, ... }:
 
 {
-  imports = []
+  imports = [ ]
     ++ (if userSettings.wm == "hyprland" then [ ../wm/hyprland.nix ]
-    else if userSettings.wm == "gnome" then [ ../wm/gnome.nix ]
-    else [ ]);
+  else if userSettings.wm == "gnome" then [ ../wm/gnome.nix ]
+  else [ ]);
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -12,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-    # Enable networking
+  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.

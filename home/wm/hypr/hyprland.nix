@@ -44,7 +44,7 @@
     enable = true;
     #plugins = [ "hyprbars" ];
     settings = {
-      "exec-once" = "waybar & hyprpaper & pypr";
+      "exec-once" = "waybar & hyprpaper & pypr & nm-applet --indicator";
       "$terminal" = "kitty";
       "$fileManager" = "thunar";
       "$menu" = "fuzzel";
@@ -76,10 +76,10 @@
             follow_mouse = 1
 
             touchpad {
-                natural_scroll = false
+                natural_scroll = true
             }
 
-            sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+            sensitivity = 0.50 # -1.0 - 1.0, 0 means no modification.
         }
 
         general {

@@ -35,6 +35,8 @@
     nvtopPackages.full
     btop
 
+    signal-desktop
+
     jellyfin-media-player
 
 

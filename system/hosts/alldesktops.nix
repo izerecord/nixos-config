@@ -87,6 +87,13 @@
     #];
   };
 
+
+  # system packages
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -94,23 +101,33 @@
     steam.enable = true;
   };
 
+  # NFS mounts
+
+  fileSystems."/mnt/nas" = {
+    device = "192.168.2.55:/srv/nfs";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" ];
+  };
+
+
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  #  fonts.enableDefaultPackages = true;
-  #  fonts.packages = with pkgs; [
-  #    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" "FiraCode" ]; })
-  #    #cm_unicode
-  #    #corefonts
-  #  ];
-  #
-  #  fonts.fontconfig = {
-  #    defaultFonts = {
-  #      monospace = [ "JetBrainsMono Nerd Font Mono" ];
-  #      sansSerif = [ "JetBrainsMono Nerd Font" ];
-  #      serif = [ "JetBrainsMono Nerd Font" ];
-  #    };
-  #  };
+#  fonts.enableDefaultPackages = true;
+#  fonts.packages = with pkgs; [
+#    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" "FiraCode" ]; })
+#    #cm_unicode
+#    #corefonts
+#  ];
+#
+#  fonts.fontconfig = {
+#    defaultFonts = {
+#      monospace = [ "JetBrainsMono Nerd Font Mono" ];
+#      sansSerif = [ "JetBrainsMono Nerd Font" ];
+#      serif = [ "JetBrainsMono Nerd Font" ];
+#    };
+#  };
 }

@@ -35,6 +35,7 @@
     nvtopPackages.full
     btop
     digikam
+    exiftool
 
     signal-desktop
 

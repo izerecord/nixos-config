@@ -34,6 +34,7 @@
     pciutils
     nvtopPackages.full
     btop
+    digikam
 
     signal-desktop
 

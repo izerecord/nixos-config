@@ -36,6 +36,7 @@
     btop
     digikam
     exiftool
+    webcord
 
     signal-desktop
 

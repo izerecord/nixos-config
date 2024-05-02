@@ -38,10 +38,13 @@
     exiftool
     webcord
 
+    # messenger
     signal-desktop
 
     jellyfin-media-player
 
+    # benchmark
+    phoronix-test-suite
 
     # fonts
     fira-code

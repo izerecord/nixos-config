@@ -44,7 +44,7 @@
     jellyfin-media-player
 
     # benchmark
-    phoronix-test-suite
+    stress-ng
 
     # fonts
     fira-code

@@ -46,6 +46,8 @@
     # benchmark
     stress-ng
 
+    gparted
+
     # fonts
     fira-code
     fira-code-symbols

@@ -91,6 +91,7 @@
   # system packages
   environment.systemPackages = with pkgs; [
     nfs-utils
+    gparted
   ];
 
 

@@ -10,6 +10,6 @@
       enable = true;
       autologin.enable = true;
       autologin.user = "chris";
-    }
-      services.desktopManager.plasma6.enable = true;
+    };
+  services.desktopManager.plasma6.enable = true;
 }

@@ -2,14 +2,15 @@
 
 {
   # Enable the X11 windowing system.
-  #services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm =
+  services.xserver.displayManager.sddm =
     {
       enable = true;
+      wayland.enable = true;
       autologin.enable = true;
-      autologin.user = "chris";
+      #autologin.user = "chris";
     };
   services.desktopManager.plasma6.enable = true;
 }

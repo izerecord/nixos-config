@@ -37,6 +37,7 @@
     digikam
     exiftool
     webcord
+    vlc
 
     # messenger
     signal-desktop

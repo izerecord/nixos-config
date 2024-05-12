@@ -6,6 +6,7 @@ let
     ".." = "cd ..";
     hb = "home-manager switch --flake ~/.dotfiles";
     nb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+    nu = "nix flake update ~/.dotfiles";
   };
 in
 {

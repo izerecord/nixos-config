@@ -50,10 +50,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # flatpak
-  services.flatpak.enable = true;
-
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";

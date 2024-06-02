@@ -58,7 +58,8 @@
     noto-fonts-emoji
     proggyfonts
 
-    # store
+    # flatpak + store
+    flatpak
     gnome.gnome-software
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

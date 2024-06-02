@@ -7,6 +7,8 @@ let
     hb = "home-manager switch --flake ~/.dotfiles";
     nb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     nu = "nix flake update ~/.dotfiles";
+    # TODO: make this smarter
+    nbremote = "nixos-rebuild switch --build-host chris@nixdesktop --flake ~/.dotfiles --upgrade";
   };
 in
 {

@@ -105,10 +105,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs = {
-    steam.enable = true;
-    steam.gamescopeSession.enable = true;
-  };
+
 
   # NFS mounts
 

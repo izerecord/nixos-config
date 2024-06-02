@@ -15,6 +15,18 @@
   networking.hostName = "nixlaptop"; # Define your hostname.
 
   # TODO: NOT IDEAL
+  security.sudo.extraRules = [
+    {
+      users = [ "chris" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
+
   # security.sudo.wheelNeedsPassword = false;
 
   #nix.settings.trusted-users = [ "@wheel" ];

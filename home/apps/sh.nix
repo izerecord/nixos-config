@@ -8,7 +8,7 @@ let
     nb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     nu = "nix flake update ~/.dotfiles";
     # TODO: make this smarter
-    nbremote = "nixos-rebuild build --build-host chris@nixdesktop --flake ~/.dotfiles";
+    nbremote = "nixos-rebuild build --build-host ssh://chris@nixdesktop --flake ~/.dotfiles";
   };
 in
 {

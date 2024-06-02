@@ -16,7 +16,7 @@
   networking.hostName = "nixlaptop"; # Define your hostname.
 
   nix.settings.trusted-users = [ "chris" ];
-  nix.settings.trusted-public-keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBctRmEoZPexi2HewhHwNGbga5BogklrwAzQM5+sZQGC chris@nixlaptop" ];
+  #nix.settings.trusted-public-keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBctRmEoZPexi2HewhHwNGbga5BogklrwAzQM5+sZQGC chris@nixlaptop" ];
 
   # --- HARDWARE & GRAPHICS ---
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;

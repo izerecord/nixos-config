@@ -22,11 +22,6 @@
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
 
-  programs = {
-    steam.enable = true;
-    steam.gamescopeSession.enable = true;
-  };
-
   hardware =
     {
       # Enable OpenGL

@@ -15,9 +15,9 @@
   networking.hostName = "nixlaptop"; # Define your hostname.
 
   # TODO: NOT IDEAL
-  security.sudo.wheelNeedsPassword = false;
+  # security.sudo.wheelNeedsPassword = false;
 
-  nix.settings.trusted-users = [ "@wheel" ];
+  #nix.settings.trusted-users = [ "@wheel" ];
 
   # --- HARDWARE & GRAPHICS ---
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;

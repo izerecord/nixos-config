@@ -5,6 +5,7 @@
     ++ (if userSettings.wm == "hyprland" then [ ../wm/hyprland.nix ]
   else if userSettings.wm == "gnome" then [ ../wm/gnome.nix ]
   else if userSettings.wm == "plasma" then [ ../wm/plasma.nix ]
+  else if userSettings.wm == "cosmic" then [ ../wm/cosmic.nix ]
   else [ ]);
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

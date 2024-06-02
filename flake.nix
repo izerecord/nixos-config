@@ -13,7 +13,7 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       userSettings = {
-        wm = "plasma";
+        wm = "cosmic";
       };
     in
     {

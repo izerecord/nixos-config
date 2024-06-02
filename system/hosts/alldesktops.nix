@@ -11,6 +11,20 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "@wheel" ];
 
+  # TODO: NOT IDEAL
+  security.sudo.extraRules = [
+    {
+      users = [ "chris" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -36,6 +50,8 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  # flatpak
+  services.flatpak.enable = true;
 
 
   # Configure keymap in X11

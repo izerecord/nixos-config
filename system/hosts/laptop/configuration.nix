@@ -14,19 +14,6 @@
 
   networking.hostName = "nixlaptop"; # Define your hostname.
 
-  # TODO: NOT IDEAL
-  security.sudo.extraRules = [
-    {
-      users = [ "chris" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
-        }
-      ];
-    }
-  ];
-
   # --- HARDWARE & GRAPHICS ---
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.

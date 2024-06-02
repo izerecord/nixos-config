@@ -11,9 +11,11 @@
       ./hardware-configuration.nix
       ../alldesktops.nix
     ];
-  # todo: exclude gnome if hyprland is activated!
 
   networking.hostName = "nixlaptop"; # Define your hostname.
+
+  # TODO: NOT IDEAL
+  security.sudo.wheelNeedsPassword = false;
 
   nix.settings.trusted-users = [ "@wheel" ];
   nix.settings.trusted-public-keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBctRmEoZPexi2HewhHwNGbga5BogklrwAzQM5+sZQGC chris@nixlaptop" ];

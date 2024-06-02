@@ -4,11 +4,11 @@ let
   myAliases = {
     ll = "ls -l";
     ".." = "cd ..";
-    hb = "home-manager switch --flake ~/.dotfiles";
-    nb = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+    hb = "home-manager --flake ~/.dotfiles --upgrade switch";
+    nb = "sudo nixos-rebuild --flake ~/.dotfiles --upgrade switch";
     nu = "nix flake update ~/.dotfiles";
     # TODO: make this smarter
-    nbremote = "nixos-rebuild --build-host ssh://chris@nixdesktop --flake ~/.dotfiles switch";
+    nbremote = "sudo nixos-rebuild --build-host ssh://chris@nixdesktop --flake --upgrade ~/.dotfiles";
   };
 in
 {

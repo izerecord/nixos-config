@@ -27,10 +27,6 @@
     }
   ];
 
-  # security.sudo.wheelNeedsPassword = false;
-
-  #nix.settings.trusted-users = [ "@wheel" ];
-
   # --- HARDWARE & GRAPHICS ---
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.

@@ -15,6 +15,9 @@
 
   networking.hostName = "nixlaptop"; # Define your hostname.
 
+  nix.settings.trusted-users = ["chris"];
+  #nix.settings.trusted-public-keys = [""];
+
   # --- HARDWARE & GRAPHICS ---
   #boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.

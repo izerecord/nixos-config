@@ -61,11 +61,12 @@
 
   # flatpak
   services.flatpak.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
   };
+  # dns for wgnord
+  services.resolved.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";

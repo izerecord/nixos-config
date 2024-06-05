@@ -12,54 +12,66 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, ... }:
-    let
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      userSettings = {
-        wm = "plasma";
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-cosmic,
+    ...
+  }: let
+    lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    userSettings = {
+      wm = "plasma";
+    };
+    cosmicmodule = [
+      {
+        nix.settings = {
+          substituters = ["https://cosmic.cachix.org/"];
+          trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+        };
+        #nix.settings.trusted-users = [ "@wheel" "chris" ];
+      }
+      nixos-cosmic.nixosModules.default
+    ];
+  in {
+    nixosConfigurations = {
+      nixdesktop = lib.nixosSystem {
+        inherit system;
+        modules =
+          [./system/hosts/desktop/configuration.nix]
+          ++ (
+            if userSettings.wm == "cosmic"
+            then cosmicmodule
+            else []
+          );
+        specialArgs = {inherit userSettings;};
       };
-      cosmicmodule = [
-        {
-          nix.settings = {
-            substituters = [ "https://cosmic.cachix.org/" ];
-            trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-          };
-          #nix.settings.trusted-users = [ "@wheel" "chris" ];
-        }
-        nixos-cosmic.nixosModules.default
-      ];
-    in
-    {
-      nixosConfigurations = {
-        nixdesktop = lib.nixosSystem {
-          inherit system;
-          modules = [ ./system/hosts/desktop/configuration.nix ]
-            ++ (if userSettings.wm == "cosmic" then cosmicmodule
-          else [ ]);
-          specialArgs = { inherit userSettings; };
-        };
-        nixlaptop = lib.nixosSystem {
-          inherit system;
-          modules = [ ./system/hosts/laptop/configuration.nix ]
-            ++ (if userSettings.wm == "cosmic" then cosmicmodule
-          else [ ]);
-          specialArgs = { inherit userSettings; };
-        };
-      };
-
-      homeConfigurations = {
-        "chris@nixdesktop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home/desktop.nix ];
-          extraSpecialArgs = { inherit userSettings; };
-        };
-        "chris@nixlaptop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home/laptop.nix ];
-          extraSpecialArgs = { inherit userSettings; };
-        };
+      nixlaptop = lib.nixosSystem {
+        inherit system;
+        modules =
+          [./system/hosts/laptop/configuration.nix]
+          ++ (
+            if userSettings.wm == "cosmic"
+            then cosmicmodule
+            else []
+          );
+        specialArgs = {inherit userSettings;};
       };
     };
+
+    homeConfigurations = {
+      "chris@nixdesktop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/desktop.nix];
+        extraSpecialArgs = {inherit userSettings;};
+      };
+      "chris@nixlaptop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/laptop.nix];
+        extraSpecialArgs = {inherit userSettings;};
+      };
+    };
+  };
 }

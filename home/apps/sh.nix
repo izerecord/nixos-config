@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   myAliases = {
     ll = "ls -l";
     ".." = "cd ..";
@@ -10,8 +12,7 @@ let
     # TODO: make this smarter
     nbremote = "nixos-rebuild --build-host chris@nixdesktop --use-remote-sudo --flake ~/.dotfiles --upgrade switch";
   };
-in
-{
+in {
   programs.bash = {
     enable = true;
     shellAliases = myAliases;

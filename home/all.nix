@@ -1,12 +1,21 @@
-{ config, pkgs, lib, userSettings, ... }:
-
 {
-  imports = [
-    ./apps/sh.nix
-    ./apps/vscode.nix
-    ./apps/basic.nix
-  ]
-  ++ (if userSettings.wm == "hyprland" then [ ./wm/hypr/hyprland.nix ] else [ ]);
+  config,
+  pkgs,
+  lib,
+  userSettings,
+  ...
+}: {
+  imports =
+    [
+      ./apps/sh.nix
+      ./apps/vscode.nix
+      ./apps/basic.nix
+    ]
+    ++ (
+      if userSettings.wm == "hyprland"
+      then [./wm/hypr/hyprland.nix]
+      else []
+    );
 
   fonts.fontconfig.enable = true;
 
@@ -26,7 +35,7 @@
     wgnord
     wget
     nil
-    nixpkgs-fmt
+    alejandra
     thunderbird
     glmark2
     glxinfo
@@ -62,6 +71,12 @@
     # flatpak + store
     kdePackages.discover
 
+    # programming languages
+
+    # lua
+    lua
+    stylua
+    lua-language-server
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -112,5 +127,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }

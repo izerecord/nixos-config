@@ -1,19 +1,22 @@
-{ config, pkgs, userSettings, ... }:
-
 {
-  imports = [ ./all.nix ];
+  config,
+  pkgs,
+  userSettings,
+  ...
+}: {
+  imports = [./all.nix];
 
   # todo: hyprland monitors (?)
 
-  wayland.windowManager.hyprland =
-    (if userSettings.wm == "hyprland" then
-      {
-        settings = {
-          "monitor" = "eDP-1,1920x1080@60,0x0,1";
-        };
-      }
-    else { }
-    );
+  wayland.windowManager.hyprland = (
+    if userSettings.wm == "hyprland"
+    then {
+      settings = {
+        "monitor" = "eDP-1,1920x1080@60,0x0,1";
+      };
+    }
+    else {}
+  );
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

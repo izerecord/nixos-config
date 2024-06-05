@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs = {
     neovim = {
       enable = true;
@@ -9,6 +12,5 @@
     #thunderbird.enable = true;
     git.enable = true;
     mangohud.enable = true;
-
   };
 }

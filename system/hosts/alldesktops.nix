@@ -1,29 +1,38 @@
-{ config, pkgs, userSettings, ... }:
-
 {
-  imports = [ ]
-    ++ (if userSettings.wm == "hyprland" then [ ../wm/hyprland.nix ]
-  else if userSettings.wm == "gnome" then [ ../wm/gnome.nix ]
-  else if userSettings.wm == "plasma" then [ ../wm/plasma.nix ]
-  else if userSettings.wm == "cosmic" then [ ../wm/cosmic.nix ]
-  else [ ]);
+  config,
+  pkgs,
+  userSettings,
+  ...
+}: {
+  imports =
+    []
+    ++ (
+      if userSettings.wm == "hyprland"
+      then [../wm/hyprland.nix]
+      else if userSettings.wm == "gnome"
+      then [../wm/gnome.nix]
+      else if userSettings.wm == "plasma"
+      then [../wm/plasma.nix]
+      else if userSettings.wm == "cosmic"
+      then [../wm/cosmic.nix]
+      else []
+    );
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = [ "@wheel" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.trusted-users = ["@wheel"];
 
   # TODO: NOT IDEAL
   security.sudo.extraRules = [
     {
-      users = [ "chris" ];
+      users = ["chris"];
       commands = [
         {
           command = "ALL";
-          options = [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+          options = ["NOPASSWD"]; # "SETENV" # Adding the following could be a good idea
         }
       ];
     }
   ];
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -52,7 +61,6 @@
 
   # flatpak
   services.flatpak.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,10 +98,9 @@
   };
 
   # OpenRGB
-  services.hardware =
-    {
-      openrgb.enable = true;
-    };
+  services.hardware = {
+    openrgb.enable = true;
+  };
 
   # bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
@@ -103,13 +110,12 @@
   users.users.chris = {
     isNormalUser = true;
     description = "chris";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     #packages = with pkgs; [
     #  firefox
     #  thunderbird
     #];
   };
-
 
   # system packages
   environment.systemPackages = with pkgs; [
@@ -117,25 +123,19 @@
     gparted
   ];
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-
 
   # NFS mounts
 
   fileSystems."/mnt/nas" = {
     device = "192.168.2.55:/srv/nfs";
     fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" ];
+    options = ["x-systemd.automount" "noauto"];
   };
-
-
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
 }

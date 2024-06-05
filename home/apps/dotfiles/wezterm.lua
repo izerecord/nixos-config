@@ -1,6 +1,7 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
+local config = {}
 
-return {
-  font = wezterm.font 'JetBrains Mono',
-}
-config.default_cursor_style = 'SteadyBlock'
+config.font = wezterm.font("JetBrains Mono")
+config.default_cursor_style = "SteadyBlock"
+
+return config

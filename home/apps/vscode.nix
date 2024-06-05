@@ -13,7 +13,6 @@
       yzhang.markdown-all-in-one
       kamadorueda.alejandra
       sumneko.lua
-      johnnymorganz.stylua
     ];
     /*
     userSettings = {

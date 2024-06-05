@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions;  [
-      dracula-theme.theme-dracula
+      #dracula-theme.theme-dracula
       #vscodevim.vim
       jnoortheen.nix-ide
       yzhang.markdown-all-in-one

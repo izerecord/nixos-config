@@ -138,18 +138,4 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  #  fonts.enableDefaultPackages = true;
-  #  fonts.packages = with pkgs; [
-  #    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" "FiraCode" ]; })
-  #    #cm_unicode
-  #    #corefonts
-  #  ];
-  #
-  #  fonts.fontconfig = {
-  #    defaultFonts = {
-  #      monospace = [ "JetBrainsMono Nerd Font Mono" ];
-  #      sansSerif = [ "JetBrainsMono Nerd Font" ];
-  #      serif = [ "JetBrainsMono Nerd Font" ];
-  #    };
-  #  };
 }

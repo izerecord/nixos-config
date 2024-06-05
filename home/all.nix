@@ -57,6 +57,7 @@
     noto-fonts
     noto-fonts-emoji
     proggyfonts
+    jetbrains-mono
 
     # flatpak + store
     kdePackages.discover

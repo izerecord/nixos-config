@@ -50,7 +50,7 @@
     librewolf
 
     # codecs
-    ffmpeg
+    ffmpeg-full
 
     # messenger
     signal-desktop

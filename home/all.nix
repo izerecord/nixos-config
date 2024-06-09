@@ -47,6 +47,7 @@
     exiftool
     webcord
     vlc
+    librewolf
 
     # messenger
     signal-desktop

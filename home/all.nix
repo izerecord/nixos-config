@@ -53,8 +53,9 @@
 
     jellyfin-media-player
 
-    # benchmark
+    # hardware tools
     stress-ng
+    isoimagewriter
 
     # fonts
     fira-code

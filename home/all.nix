@@ -49,6 +49,9 @@
     vlc
     librewolf
 
+    # codecs
+    ffmpeg
+
     # messenger
     signal-desktop
 
